@@ -6,7 +6,7 @@
             .filter(x => x.dataset["nodetype"] === 'story')
             .map(x => x.dataset["itemId"]).map(x => ({ name: x.split('--')[1], id: x}))
     , null, 2)
-*/  
+*/
 
 describe("Storybook screenshots", () => {
   [

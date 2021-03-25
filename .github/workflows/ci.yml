@@ -1,55 +1,53 @@
 name: CI
 
 on:
-    pull_request:
-    push:
-      branches:
-        - master
+  pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
-    screenshots:
-        name: Screen Shots Tests
-        runs-on: ubuntu-latest
+  screenshots:
+    name: Screen Shots Tests
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-            - name: Set Node.js version
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 12.x
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
-            - name: Install packages
-              run: CYPRESS_INSTALL_BINARY=0 npm install
+      - name: Install packages
+        run: CYPRESS_INSTALL_BINARY=0 npm install
 
-            - name: Run Screenshot Tests
-              run: npm run cypress:screenshot:docker
+      - name: Run Screenshot Tests
+        run: docker run -e CYPRESS_baseUrl=http://host.docker.internal:6006/ -e --ipc=host -v $PWD:/e2e -w /e2e cypress/included:6.8.0
 
-            - name: 'Upload Screenshots'
-              uses: actions/upload-artifact@v1
-              if: failure()
-              with:
-                name: screenshots
-                path: cypress/snapshots
+      - name: "Upload Screenshots"
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: screenshots
+          path: cypress/snapshots
 
-    linting:
-        name: Linting
-        runs-on: ubuntu-latest
+  linting:
+    name: Linting
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-            - name: Set Node.js version
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 12.x
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
-            - name: Install packages
-              run: CYPRESS_INSTALL_BINARY=0 npm install
-                
-            - name: Run Prettier
-              run: npx prettier --check .
-                
-   
+      - name: Install packages
+        run: CYPRESS_INSTALL_BINARY=0 npm install
+
+      - name: Run Prettier
+        run: npx prettier --check .
