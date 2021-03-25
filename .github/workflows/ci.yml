@@ -35,7 +35,7 @@ jobs:
           interval: 3000
 
       - name: Run Screenshot Tests
-        run: docker run -e CYPRESS_baseUrl=http://host.docker.internal:6006/ -e --ipc=host -v $PWD:/e2e -w /e2e cypress/included:6.8.0
+        run: docker run -e CYPRESS_baseUrl=http://172.17.0.1:6006/ -e --ipc=host -v $PWD:/e2e -w /e2e cypress/included:6.8.0
 
       - name: "Upload Screenshots"
         uses: actions/upload-artifact@v1
