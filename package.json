@@ -1,7 +1,7 @@
 {
   "name": "react-architecture-diagrams",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simply, potentially ugly, architecture diagrams rendered as HTML in React",
   "main": "./src/index.js",
   "scripts": {
     "cypress:screenshot": "npx cypress open",
