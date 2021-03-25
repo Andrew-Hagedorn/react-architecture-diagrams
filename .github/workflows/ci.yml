@@ -62,3 +62,25 @@ jobs:
 
       - name: Run Prettier
         run: npx prettier --check .
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    needs: [linting, screenshots]
+
+    if: success() && github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
