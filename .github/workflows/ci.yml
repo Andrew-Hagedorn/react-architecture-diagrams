@@ -23,6 +23,17 @@ jobs:
       - name: Install packages
         run: CYPRESS_INSTALL_BINARY=0 npm install
 
+      - name: Start Storybook
+        run: npm run storybook &
+
+      - name: Wait for Storybook
+        uses: nev7n/wait_for_response@v1
+        with:
+          url: "http://localhost:6006/"
+          responseCode: 200
+          timeout: 60000
+          interval: 3000
+
       - name: Run Screenshot Tests
         run: docker run -e CYPRESS_baseUrl=http://host.docker.internal:6006/ -e --ipc=host -v $PWD:/e2e -w /e2e cypress/included:6.8.0
 
