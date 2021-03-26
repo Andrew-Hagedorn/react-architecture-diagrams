@@ -423,3 +423,119 @@ export const ServiceAllSides = () => (
     />
   </RenderFullScreen>
 );
+
+export const CloudAllSides = () => (
+  <RenderFullScreen>
+    <ReactArchitectureDiagram
+      config={{
+        services: [
+          {
+            id: "1",
+            type: ComponentTypes.Cloud,
+            position: { x: 300, y: 50 },
+            height: 100,
+            width: 100,
+            name: "top db",
+            links: [
+              { id: "2", start: LinkPosition.Bottom, end: LinkPosition.Top },
+              {
+                id: "3",
+                start: LinkPosition.Left,
+                end: LinkPosition.Top,
+                type: LinkType.Curved,
+              },
+              {
+                id: "4",
+                start: LinkPosition.Right,
+                end: LinkPosition.Top,
+                type: LinkType.Curved,
+              },
+            ],
+          },
+          {
+            id: "2",
+            type: ComponentTypes.Cloud,
+            position: { x: 300, y: 175 },
+            height: 100,
+            width: 100,
+            name: "middle db",
+          },
+          {
+            id: "3",
+            type: ComponentTypes.Cloud,
+            position: { x: 10, y: 175 },
+            height: 100,
+            width: 100,
+            name: "left db",
+            links: [
+              { id: "2", start: LinkPosition.Right, end: LinkPosition.Left },
+              {
+                id: "1",
+                start: LinkPosition.Top,
+                end: LinkPosition.Left,
+                type: LinkType.Curved,
+                under: true,
+              },
+              {
+                id: "5",
+                start: LinkPosition.Bottom,
+                end: LinkPosition.Left,
+                type: LinkType.Curved,
+                under: true,
+              },
+            ],
+          },
+          {
+            id: "4",
+            type: ComponentTypes.Cloud,
+            position: { x: 590, y: 175 },
+            height: 100,
+            width: 100,
+            name: "right db",
+            links: [
+              { id: "2", start: LinkPosition.Left, end: LinkPosition.Right },
+              {
+                id: "1",
+                start: LinkPosition.Top,
+                end: LinkPosition.Right,
+                type: LinkType.Curved,
+                under: true,
+              },
+              {
+                id: "5",
+                start: LinkPosition.Bottom,
+                end: LinkPosition.Right,
+                type: LinkType.Curved,
+                under: true,
+              },
+            ],
+          },
+          ,
+          {
+            id: "5",
+            type: ComponentTypes.Cloud,
+            position: { x: 300, y: 300 },
+            height: 100,
+            width: 100,
+            name: "bottom db",
+            links: [
+              { id: "2", start: LinkPosition.Top, end: LinkPosition.Bottom },
+              {
+                id: "3",
+                start: LinkPosition.Left,
+                end: LinkPosition.Bottom,
+                type: LinkType.Curved,
+              },
+              {
+                id: "4",
+                start: LinkPosition.Right,
+                end: LinkPosition.Bottom,
+                type: LinkType.Curved,
+              },
+            ],
+          },
+        ],
+      }}
+    />
+  </RenderFullScreen>
+);

@@ -1,6 +1,6 @@
 {
   "name": "react-architecture-diagrams",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simply, potentially ugly, architecture diagrams rendered as HTML in React",
   "main": "./src/index.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "cypress:screenshot:docker": "docker run -it -e CYPRESS_baseUrl=http://host.docker.internal:6006/ -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots --ipc=host -v $PWD:/e2e -w /e2e cypress/included:6.8.0",
     "storybook": "start-storybook -p 6006"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Andrew Hagedorn",
+  "license": "MIT",
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
