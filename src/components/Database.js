@@ -95,4 +95,11 @@ Database.computePlacement = function ({ service, placement }) {
   }
 };
 
+Database.getHeightAndWidth = function ({ height, width }) {
+  return {
+    width: width || defaultWidth,
+    height: height || defaultHeight,
+  };
+};
+
 export default Database;

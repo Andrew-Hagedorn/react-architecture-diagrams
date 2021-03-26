@@ -75,4 +75,11 @@ Service.computePlacement = function ({ service, placement }) {
   }
 };
 
+Service.getHeightAndWidth = function ({ height, width }) {
+  return {
+    width: width || defaultWidth,
+    height: height || defaultHeight,
+  };
+};
+
 export default Service;

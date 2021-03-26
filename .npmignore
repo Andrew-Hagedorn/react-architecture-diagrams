@@ -1,0 +1,7 @@
+node_modules/*
+cypress/*
+.github/*
+.storybook/*
+cypress.json
+.prettierrc.json
+.gitignore
