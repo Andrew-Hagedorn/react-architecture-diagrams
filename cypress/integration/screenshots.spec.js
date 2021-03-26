@@ -109,7 +109,7 @@ describe("Storybook screenshots", () => {
     {
       name: "cloud--withcolor",
       id: "diagram-components-cloud--withcolor",
-    }, 
+    },
   ].forEach((test) => {
     it(`screenshot matches for ${test.name}`, () => {
       cy.visit(`/iframe.html?id=${test.id}&viewMode=story`);

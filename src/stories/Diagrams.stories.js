@@ -424,7 +424,6 @@ export const ServiceAllSides = () => (
   </RenderFullScreen>
 );
 
-
 export const CloudAllSides = () => (
   <RenderFullScreen>
     <ReactArchitectureDiagram
