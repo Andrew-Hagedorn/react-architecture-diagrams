@@ -80,6 +80,12 @@ jobs:
         with:
           node-version: 12.x
 
+      - name: Install packages
+        run: CYPRESS_INSTALL_BINARY=0 npm install
+
+      - name: compile
+        run: npx babel src --out-dir dist
+
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
