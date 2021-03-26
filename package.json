@@ -1,6 +1,6 @@
 {
   "name": "react-architecture-diagrams",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simply, potentially ugly, architecture diagrams rendered as HTML in React",
   "main": "./dist/index.js",
   "scripts": {

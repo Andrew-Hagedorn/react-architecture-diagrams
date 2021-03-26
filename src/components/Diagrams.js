@@ -37,7 +37,8 @@ function groupServices(config) {
   let linkCounter = 1;
   services.forEach((x) => {
     if (x.links) {
-      x.links.forEach((l) => {
+      x.links.forEach((originalLink) => {
+        const l = { ...originalLink };
         l.end = {
           placement: l.end,
           service: serviceMap[l.id],
