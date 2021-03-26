@@ -2,6 +2,7 @@ export const ComponentTypes = {
   Service: "service",
   InternalRouting: "internalrouting",
   Database: "database",
+  Cloud: "cloud",
 };
 
 export const LinkPosition = {

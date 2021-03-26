@@ -90,6 +90,26 @@ describe("Storybook screenshots", () => {
       name: "service-all-sides",
       id: "diagram-services--service-all-sides",
     },
+    {
+      name: "cloud-all-sides",
+      id: "diagram-services--cloud-all-sides",
+    },
+    {
+      name: "cloud--default-size",
+      id: "diagram-components-cloud--default-size",
+    },
+    {
+      name: "cloud--multiple-lines",
+      id: "diagram-components-cloud--multiple-lines",
+    },
+    {
+      name: "cloud--big",
+      id: "diagram-components-cloud--big",
+    },
+    {
+      name: "cloud--withcolor",
+      id: "diagram-components-cloud--withcolor",
+    }, 
   ].forEach((test) => {
     it(`screenshot matches for ${test.name}`, () => {
       cy.visit(`/iframe.html?id=${test.id}&viewMode=story`);

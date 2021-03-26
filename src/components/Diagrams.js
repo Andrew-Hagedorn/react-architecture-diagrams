@@ -4,6 +4,7 @@ import InternalRouting from "./InternalRouting";
 import Service from "./Service";
 import Database from "./Database";
 import PlacedLink from "./PlacedLink";
+import Cloud from "./Cloud";
 import { ComponentTypes } from "../constants";
 
 const Wrapper = styled.div`
@@ -28,6 +29,8 @@ function groupServices(config) {
       x.Component = InternalRouting;
     } else if (x.type === ComponentTypes.Database) {
       x.Component = Database;
+    } else if (x.type === ComponentTypes.Cloud) {
+      x.Component = Cloud;
     }
   });
 
