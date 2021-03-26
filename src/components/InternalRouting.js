@@ -62,4 +62,11 @@ InternalRouting.computePlacement = function ({ service, placement }) {
   }
 };
 
+InternalRouting.getHeightAndWidth = function ({ height, width }) {
+  return {
+    width: width || defaultWidth,
+    height: height || defaultHeight,
+  };
+};
+
 export default InternalRouting;
